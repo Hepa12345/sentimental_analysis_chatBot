@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from chatbot_model import predict_sentiment
-import os
+
 
 app = Flask(__name__)
 
@@ -23,8 +23,10 @@ def chat():
     return render_template("index.html", user_input=user_input, sentiment=sentiment, response=response)
 
 if __name__ == "__main__":
-port = int(os.environ.get("PORT", 5000))
-app.run(host="0.0.0.0", port=port)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
 
 
 
